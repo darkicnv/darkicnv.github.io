@@ -79,37 +79,76 @@ Next →
 
 <script>
 
-const btn=document.getElementById("hugBtn");
+const btn = document.getElementById("hugBtn");
+const text = document.getElementById("hugText");
 
-const text=document.getElementById("hugText");
+let holdTimer = null;
 
-btn.addEventListener("click",()=>{
+function sendHug() {
 
-if(navigator.vibrate){
+    if(navigator.vibrate){
+        navigator.vibrate([100,100,100]);
+    }
 
-navigator.vibrate(200);
+    text.classList.remove("hidden");
+
+    for(let i=0;i<30;i++){
+
+        let heart=document.createElement("span");
+
+        heart.innerHTML="❤️";
+
+        heart.className="heart";
+
+        heart.style.left=Math.random()*100+"vw";
+
+        heart.style.animationDuration=(2+Math.random()*2)+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>heart.remove(),4000);
+
+    }
 
 }
 
-text.classList.remove("hidden");
+// Start holding
+btn.addEventListener("touchstart",()=>{
 
-for(let i=0;i<25;i++){
+    holdTimer=setTimeout(sendHug,2000);
 
-let heart=document.createElement("span");
+});
 
-heart.innerHTML="❤️";
+// Finger removed
+btn.addEventListener("touchend",()=>{
 
-heart.className="heart";
+    clearTimeout(holdTimer);
 
-heart.style.left=Math.random()*100+"vw";
+});
 
-heart.style.animationDuration=(2+Math.random()*2)+"s";
+// Finger moved away
+btn.addEventListener("touchcancel",()=>{
 
-document.body.appendChild(heart);
+    clearTimeout(holdTimer);
 
-setTimeout(()=>heart.remove(),4000);
+});
 
-}
+// Desktop support
+btn.addEventListener("mousedown",()=>{
+
+    holdTimer=setTimeout(sendHug,2000);
+
+});
+
+btn.addEventListener("mouseup",()=>{
+
+    clearTimeout(holdTimer);
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+    clearTimeout(holdTimer);
 
 });
 
