@@ -1053,4 +1053,10 @@ box-shadow .3s;
     line-height:1.8;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
+.promise,
+.promise p,
+.promise h1,
+.promise h2{
+    color:#4A3A52 !important;
+}
 /* End of Style Sheet ❤️ */
