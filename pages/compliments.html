@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Just For You ❤️</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="floating-hearts"></div>
+
+<div class="page">
+
+<img src="../assets/gifs/milk-and-mocha.gif"
+class="sticker"
+alt="Milk & Mocha">
+
+<h1>One More Thing... 💕</h1>
+
+<p class="subtitle">
+
+Every time you press the button,
+
+I'll tell you something
+
+I've always wanted you to know.
+
+</p>
+
+<div id="compliment" class="compliment-box">
+
+You're my favorite person. ❤️
+
+</div>
+
+<button id="complimentBtn" class="love-btn">
+
+💖 Tell Me Something Sweet
+
+</button>
+
+<div class="buttons">
+
+<a href="care.html" class="back-btn">
+
+← Back
+
+</a>
+
+<a href="reasons.html" class="next-btn">
+
+Next →
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const compliments=[
+
+"You're the cutest person I know. 🥺",
+
+"I smile whenever I think of you. ❤️",
+
+"You're prettier than you believe. 🌸",
+
+"You're my favorite notification. 📱",
+
+"You make my heart feel at home. 🏡",
+
+"You deserve every happiness in the world. 🌍",
+
+"I could listen to your voice forever. 🎧",
+
+"Your smile is literally my weakness. 😊",
+
+"Thank you for existing. ❤️",
+
+"You make ordinary days feel magical. ✨",
+
+"I'm so lucky to know you. 🍀",
+
+"You're my comfort person. 🤍",
+
+"You are enough, exactly as you are. 🌷",
+
+"I'll never get tired of choosing you. 💖",
+
+"You make my world brighter. ☀️",
+
+"I hope you never forget how amazing you are. 🌹",
+
+"I still get excited whenever I see your name. 💌",
+
+"My favorite place is wherever you are. 🫂",
+
+"You're my peace after every storm. 🌈",
+
+"I love you more than words can explain. ❤️"
+
+];
+
+const box=document.getElementById("compliment");
+
+const btn=document.getElementById("complimentBtn");
+
+btn.onclick=()=>{
+
+let random=compliments[Math.floor(Math.random()*compliments.length)];
+
+box.style.opacity=0;
+
+setTimeout(()=>{
+
+box.innerHTML=random;
+
+box.style.opacity=1;
+
+},300);
+
+if(navigator.vibrate){
+
+navigator.vibrate(80);
+
+}
+
+};
+
+</script>
+
+</body>
+
+</html>
