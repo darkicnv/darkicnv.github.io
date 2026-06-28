@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Surprise ❤️</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="floating-hearts"></div>
+
+<div class="page">
+
+<h1>I Have A Surprise For You 🎁</h1>
+
+<p>
+
+Tap the gift box...
+
+I hope it makes you smile.
+
+🥺❤️
+
+</p>
+
+<img src="../assets/gifs/gift.gif"
+
+id="gift"
+
+class="gift"
+
+alt="Gift Box">
+
+<div id="surprise" class="hidden">
+
+<h2>🎉 Congratulations! 🎉</h2>
+
+<p>
+
+You have unlocked...
+
+</p>
+
+<div class="rewards">
+
+<div>🫂 Unlimited Hugs</div>
+
+<div>😘 Unlimited Forehead Kisses</div>
+
+<div>🌹 Unlimited Flowers</div>
+
+<div>💖 Unlimited "I'm Proud Of You"</div>
+
+<div>🤍 Unlimited Care</div>
+
+<div>♾️ Unlimited Love</div>
+
+</div>
+
+<p class="quote">
+
+Valid Forever.
+
+No Expiry Date.
+
+❤️
+
+</p>
+
+<a href="letter.html" class="love-btn">
+
+💌 Open My Letter
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const gift=document.getElementById("gift");
+
+const surprise=document.getElementById("surprise");
+
+gift.onclick=()=>{
+
+gift.classList.add("open");
+
+surprise.classList.remove("hidden");
+
+if(navigator.vibrate){
+
+navigator.vibrate([100,80,100]);
+
+}
+
+for(let i=0;i<60;i++){
+
+let heart=document.createElement("span");
+
+heart.innerHTML=Math.random()>0.5?"❤️":"✨";
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(2+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),5000);
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
+
+</html>
