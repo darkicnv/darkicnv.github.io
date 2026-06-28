@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Song ❤️</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="floating-hearts"></div>
+
+<div class="page">
+
+<img src="../assets/gifs/music-bear.gif"
+class="sticker">
+
+<h1>Every Love Story Has A Song 🎵</h1>
+
+<p class="subtitle">
+
+Whenever this song plays...
+
+it reminds me of you.
+
+❤️
+
+</p>
+
+<div class="player">
+
+<div class="record"></div>
+
+<audio id="song" src="../assets/music/ours.mp3"></audio>
+
+<button id="playBtn" class="love-btn">
+
+▶ Play Our Song
+
+</button>
+
+</div>
+
+<div id="lyrics" class="lyrics">
+
+💌
+
+Every beat reminds me of your smile...
+
+Every lyric reminds me of your kindness...
+
+Every second reminds me
+
+how lucky I am to know you.
+
+❤️
+
+</div>
+
+<div class="quote">
+
+"I hope one day this song reminds you of us."
+
+</div>
+
+<div class="buttons">
+
+<a href="gallery.html" class="back-btn">
+
+← Back
+
+</a>
+
+<a href="surprise.html" class="next-btn">
+
+Next →
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const song=document.getElementById("song");
+
+const btn=document.getElementById("playBtn");
+
+const lyrics=document.getElementById("lyrics");
+
+btn.onclick=()=>{
+
+if(song.paused){
+
+song.play();
+
+btn.innerHTML="⏸ Pause";
+
+lyrics.style.opacity="1";
+
+}else{
+
+song.pause();
+
+btn.innerHTML="▶ Play Our Song";
+
+}
+
+};
+
+</script>
+
+</body>
+
+</html>
