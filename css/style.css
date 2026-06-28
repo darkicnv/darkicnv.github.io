@@ -1065,93 +1065,48 @@ box-shadow .3s;
 .promise h2{
     color:#4A3A52 !important;
 }
-/* ===== Surprise Page ===== */
+/* ===== Surprise Page Fix ===== */
 
-.congrats{
-
-font-family:'Dancing Script',cursive;
-
-font-size:3rem;
-
-color:#E91E63;
-
-text-shadow:
-0 0 10px rgba(255,105,180,.4),
-0 0 20px rgba(255,182,193,.4);
-
-margin-bottom:15px;
-
+#surprise{
+    color:#4A3A52 !important;
 }
 
-.unlock-text{
-
-font-size:1.2rem;
-
-font-weight:600;
-
-color:#6A3D6E;
-
-margin-bottom:20px;
-
+#surprise h2{
+    font-family:'Dancing Script',cursive;
+    color:#E91E63 !important;
+    font-size:3rem;
+    text-shadow:0 2px 10px rgba(255,105,180,.3);
 }
 
-.rewards{
-
-display:flex;
-
-flex-direction:column;
-
-gap:12px;
-
-margin:25px 0;
-
+#surprise p{
+    color:#4A3A52 !important;
 }
 
-.reward{
-
-background:rgba(255,255,255,.9);
-
-padding:14px 18px;
-
-border-radius:18px;
-
-font-size:1.05rem;
-
-font-weight:600;
-
-color:#4A3A52;
-
-text-align:left;
-
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-transition:.3s;
-
+#surprise .rewards{
+    margin:25px 0;
 }
 
-.reward:hover{
-
-transform:translateX(8px);
-
-background:#fff;
-
-box-shadow:0 12px 25px rgba(255,105,180,.25);
-
+#surprise .reward{
+    background:rgba(255,255,255,.9);
+    color:#4A3A52 !important;
+    padding:15px 18px;
+    border-radius:18px;
+    margin:10px 0;
+    text-align:left;
+    font-weight:600;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.reward span{
-
-color:#4A3A52;
-
+#surprise .reward span{
+    color:#4A3A52 !important;
 }
 
-.quote{
+#surprise .quote{
+    color:#7A5C7A !important;
+}
 
-color:#7A5C7A;
-
-font-weight:500;
-
-margin-top:25px;
-
+#surprise .unlock-text{
+    color:#6A3D6E !important;
+    font-weight:600;
 }
 /* End of Style Sheet ❤️ */
