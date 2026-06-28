@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>100 Reasons ❤️</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="floating-hearts"></div>
+
+<div class="page">
+
+<img src="../assets/stickers/bear-heart.png"
+class="sticker"
+alt="Bear">
+
+<h1>100 Reasons Why You're Special ❤️</h1>
+
+<div class="reason-card">
+
+<h2 id="number">Reason #1</h2>
+
+<p id="reason">
+
+Because your smile can brighten even my darkest days.
+
+</p>
+
+</div>
+
+<button id="nextReason" class="love-btn">
+
+❤️ Reveal Next Reason
+
+</button>
+
+<div class="buttons">
+
+<a href="compliments.html" class="back-btn">
+
+← Back
+
+</a>
+
+<a href="gallery.html" class="next-btn">
+
+Next →
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const reasons=[
+
+"Because your smile can brighten even my darkest days.",
+"Because your laugh is my favorite sound.",
+"Because you always make me feel understood.",
+"Because talking to you never feels like enough.",
+"Because you make ordinary days extraordinary.",
+"Because you're incredibly kind.",
+"Because your happiness matters to me.",
+"Because your voice calms my heart.",
+"Because you make me smile without trying.",
+"Because you inspire me to become better.",
+"Because you're beautiful inside and out.",
+"Because your eyes tell stories words can't.",
+"Because your little habits are adorable.",
+"Because you're my safe place.",
+"Because you're my favorite notification.",
+"Because I miss you even after talking to you.",
+"Because your hugs would fix everything.",
+"Because you're thoughtful.",
+"Because you believe in me.",
+"Because life feels brighter with you."
+
+];
+
+let i=0;
+
+const reason=document.getElementById("reason");
+
+const number=document.getElementById("number");
+
+document.getElementById("nextReason").onclick=()=>{
+
+i++;
+
+if(i<reasons.length){
+
+number.innerHTML="Reason #"+(i+1);
+
+reason.innerHTML=reasons[i];
+
+}else{
+
+number.innerHTML="Reason #100 ❤️";
+
+reason.innerHTML="I ran out of numbers... but I'll never run out of reasons to love you. ♾️❤️";
+
+document.getElementById("nextReason").style.display="none";
+
+}
+
+if(navigator.vibrate){
+
+navigator.vibrate(70);
+
+}
+
+};
+
+</script>
+
+</body>
+
+</html>
