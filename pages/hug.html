@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Hug For You ❤️</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="floating-hearts"></div>
+
+<div class="page">
+
+<img src="../assets/gifs/hug.gif"
+class="sticker hug"
+alt="Hug Bear">
+
+<h1>Come Here... 🫂</h1>
+
+<p>
+
+If I were with you right now...
+
+I'd give you the warmest hug,
+
+hold your hand,
+
+and remind you that
+
+everything will be okay.
+
+❤️
+
+</p>
+
+<button id="hugBtn" class="hug-btn">
+
+🫂 Hold For A Hug
+
+</button>
+
+<p id="hugText" class="hidden">
+
+Hug Delivered Successfully!
+
+❤️❤️❤️
+
+I hope you felt it.
+
+</p>
+
+<div class="buttons">
+
+<a href="you.html" class="back-btn">
+
+← Back
+
+</a>
+
+<a href="care.html" class="next-btn">
+
+Next →
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const btn=document.getElementById("hugBtn");
+
+const text=document.getElementById("hugText");
+
+btn.addEventListener("click",()=>{
+
+if(navigator.vibrate){
+
+navigator.vibrate(200);
+
+}
+
+text.classList.remove("hidden");
+
+for(let i=0;i<25;i++){
+
+let heart=document.createElement("span");
+
+heart.innerHTML="❤️";
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(2+Math.random()*2)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),4000);
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
