@@ -1044,5 +1044,13 @@ transform .3s,
 box-shadow .3s;
 
 }
-
+.promise{
+    background:rgba(255,255,255,.7);
+    border-radius:20px;
+    padding:20px;
+    margin:25px 0;
+    color:#4A3A52;
+    line-height:1.8;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
 /* End of Style Sheet ❤️ */
