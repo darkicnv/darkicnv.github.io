@@ -1065,4 +1065,93 @@ box-shadow .3s;
 .promise h2{
     color:#4A3A52 !important;
 }
+/* ===== Surprise Page ===== */
+
+.congrats{
+
+font-family:'Dancing Script',cursive;
+
+font-size:3rem;
+
+color:#E91E63;
+
+text-shadow:
+0 0 10px rgba(255,105,180,.4),
+0 0 20px rgba(255,182,193,.4);
+
+margin-bottom:15px;
+
+}
+
+.unlock-text{
+
+font-size:1.2rem;
+
+font-weight:600;
+
+color:#6A3D6E;
+
+margin-bottom:20px;
+
+}
+
+.rewards{
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+margin:25px 0;
+
+}
+
+.reward{
+
+background:rgba(255,255,255,.9);
+
+padding:14px 18px;
+
+border-radius:18px;
+
+font-size:1.05rem;
+
+font-weight:600;
+
+color:#4A3A52;
+
+text-align:left;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.reward:hover{
+
+transform:translateX(8px);
+
+background:#fff;
+
+box-shadow:0 12px 25px rgba(255,105,180,.25);
+
+}
+
+.reward span{
+
+color:#4A3A52;
+
+}
+
+.quote{
+
+color:#7A5C7A;
+
+font-weight:500;
+
+margin-top:25px;
+
+}
 /* End of Style Sheet ❤️ */
