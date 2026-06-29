@@ -503,30 +503,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         });
 
                 }
-        /*==============================
-        Secret Heart
-    ==============================*/
-
-    const secretHeart=$("#secretHeart");
-
-    if(secretHeart){
-
-        let taps=0;
-
-        secretHeart.addEventListener("click",()=>{
-
-            taps++;
-
-            if(taps>=5){
-
-                window.location.href="pages/secret.html";
-
-            }
-
-        });
-
-    }
-
     /*==============================
         Floating Love Messages
     ==============================*/
