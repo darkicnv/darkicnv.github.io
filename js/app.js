@@ -1,591 +1,736 @@
-/*==========================================
-  FOR MOU ❤️
-  app.js
-  Part 1
-==========================================*/
+/*=========================================
+    FOR MOU ❤️
+    app.js
+    Part 1
+=========================================*/
 
-// Wait until page loads
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded",()=>{
+    console.log("❤️ Welcome, Mou!");
 
-/*==================================
-  Floating Hearts
-==================================*/
+    /*=================================
+        Floating Hearts
+    =================================*/
 
-const heartContainer=document.querySelector(".hearts")||
-document.querySelector(".floating-hearts");
+    const heartContainer =
+        document.querySelector(".hearts") ||
+        document.querySelector(".floating-hearts");
 
-if(heartContainer){
+    function createHeart() {
 
-setInterval(()=>{
+        if (!heartContainer) return;
 
-const heart=document.createElement("span");
+        const heart = document.createElement("span");
 
-heart.className="heart";
+        const emojis = [
+            "❤️",
+            "💖",
+            "💕",
+            "🌸",
+            "✨"
+        ];
 
-const hearts=["❤️","💖","💕","🌸","✨"];
+        heart.className = "heart";
 
-heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+        heart.textContent =
+            emojis[Math.floor(Math.random() * emojis.length)];
 
-heart.style.left=Math.random()*100+"vw";
+        heart.style.left = Math.random() * 100 + "vw";
 
-heart.style.fontSize=(16+Math.random()*18)+"px";
+        heart.style.fontSize =
+            (18 + Math.random() * 18) + "px";
 
-heart.style.animationDuration=(4+Math.random()*5)+"s";
+        heart.style.animationDuration =
+            (4 + Math.random() * 4) + "s";
 
-heartContainer.appendChild(heart);
+        heartContainer.appendChild(heart);
 
-setTimeout(()=>{
+        setTimeout(() => {
 
-heart.remove();
+            heart.remove();
 
-},9000);
+        }, 8000);
 
-},450);
+    }
 
-}
+    setInterval(createHeart, 450);
 
-/*==================================
-  Sparkles
-==================================*/
+    /*=================================
+        Sparkles
+    =================================*/
 
-const sparkleContainer=document.querySelector(".sparkles");
+    const sparkleContainer =
+        document.querySelector(".sparkles");
 
-if(sparkleContainer){
+    function createSparkles() {
 
-for(let i=0;i<35;i++){
+        if (!sparkleContainer) return;
 
-const star=document.createElement("span");
+        for (let i = 0; i < 30; i++) {
 
-star.className="sparkle";
+            const sparkle = document.createElement("span");
 
-star.style.left=Math.random()*100+"vw";
+            sparkle.className = "sparkle";
 
-star.style.top=Math.random()*100+"vh";
+            sparkle.style.left =
+                Math.random() * 100 + "vw";
 
-star.style.animationDelay=Math.random()*3+"s";
+            sparkle.style.top =
+                Math.random() * 100 + "vh";
 
-sparkleContainer.appendChild(star);
+            sparkle.style.animationDelay =
+                Math.random() * 3 + "s";
 
-}
+            sparkleContainer.appendChild(sparkle);
 
-}
+        }
 
-/*==================================
-  Music Button
-==================================*/
+    }
 
-const music=document.getElementById("bgMusic");
+    createSparkles();
 
-const musicBtn=document.getElementById("musicBtn");
+    /*=================================
+        Music Button
+    =================================*/
 
-if(music && musicBtn){
+    const music =
+        document.getElementById("bgMusic");
 
-musicBtn.onclick=()=>{
+    const musicBtn =
+        document.getElementById("musicBtn");
 
-if(music.paused){
+    if (music && musicBtn) {
 
-music.play();
+        musicBtn.addEventListener("click", () => {
 
-musicBtn.innerHTML="🔊";
+            if (music.paused) {
 
-}else{
+                music.play();
 
-music.pause();
+                musicBtn.innerHTML = "🔊";
 
-musicBtn.innerHTML="🎵";
+            } else {
 
-}
+                music.pause();
 
-};
+                musicBtn.innerHTML = "🎵";
 
-}
+            }
 
-/*==================================
-  Fade Animation
-==================================*/
+        });
 
-document.body.classList.add("fade");
+    }
 
-/*==================================
-  Vibration Helper
-==================================*/
+    /*=================================
+        Fade Animation
+    =================================*/
 
-window.vibrate=function(ms=80){
+    document.body.classList.add("fade");
 
-if(navigator.vibrate){
+    /*=================================
+        Vibrate Helper
+    =================================*/
 
-navigator.vibrate(ms);
+    window.vibrate = function (ms = 60) {
 
-}
+        if (navigator.vibrate) {
 
-};
+            navigator.vibrate(ms);
+
+        }
+
+    };
+/*=================================
+        Loading Screen
+    =================================*/
+
+    const progressBar = document.getElementById("progressBar");
+    const loadingText = document.getElementById("loadingText");
+    const percent = document.getElementById("percent");
+
+    if (progressBar) {
+
+        const messages = [
+
+            "Loading a little surprise... 💕",
+
+            "Preparing hugs... 🫂",
+
+            "Collecting hearts... ❤️",
+
+            "Adding cute moments... 🌸",
+
+            "Almost there, Mou... ✨",
+
+            "Welcome, Bachha ❤️"
+
+        ];
+
+        let progress = 0;
+        let message = 0;
+
+        const loader = setInterval(() => {
+
+            progress++;
+
+            progressBar.style.width = progress + "%";
+
+            if (percent) {
+
+                percent.textContent = progress + "%";
+
+            }
+
+            if (
+                progress % 20 === 0 &&
+                loadingText &&
+                message < messages.length
+            ) {
+
+                loadingText.textContent = messages[message];
+
+                message++;
+
+            }
+
+            if (progress >= 100) {
+
+                clearInterval(loader);
+
+                if (loadingText) {
+
+                    loadingText.textContent =
+                        "Opening your little world... ❤️";
+
+                }
+
+                setTimeout(() => {
+
+                    window.location.href = "welcome.html";
+
+                }, 1200);
+
+            }
+
+        }, 40);
+
+    }
+
+    /*=================================
+        Heart Explosion
+    =================================*/
+
+    function heartExplosion(count = 25) {
+
+        for (let i = 0; i < count; i++) {
+
+            const heart = document.createElement("span");
+
+            heart.className = "heart";
+
+            heart.textContent = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (18 + Math.random() * 18) + "px";
+
+            heart.style.animationDuration =
+                (2 + Math.random() * 2) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 4000);
+
+        }
+
+    }
+
+    /*=================================
+        Button Effects
+    =================================*/
+
+    document.querySelectorAll(
+
+        ".start-btn,.next-btn,.love-btn,.back-btn"
+
+    ).forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            heartExplosion(15);
+
+            vibrate(40);
+
+        });
+
+    });
+
+    /*=================================
+        Gift Animation
+    =================================*/
+
+    const gift = document.getElementById("gift");
+
+    if (gift) {
+
+        gift.addEventListener("click", () => {
+
+            gift.classList.add("open");
+
+            heartExplosion(30);
+
+            vibrate(120);
+
+        });
+
+    }
+
+    /*=================================
+        Scroll Reveal
+    =================================*/
+
+    const cards = document.querySelectorAll(
+
+        ".glass-card,.photo,.reason-card,.care-card,.reward"
+
+    );
+
+    if (cards.length > 0) {
+
+        const observer = new IntersectionObserver(entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                }
+
+            });
+
+        });
+
+        cards.forEach(card => {
+
+            card.style.opacity = "0";
+
+            card.style.transform =
+                "translateY(40px)";
+
+            observer.observe(card);
+
+        });
+
+    }
+  /*=================================
+        Hold For Hug ❤️
+    =================================*/
+
+    const hugBtn = document.getElementById("hugBtn");
+    const hugText = document.getElementById("hugText");
+
+    if (hugBtn) {
+
+        let holdTimer = null;
+
+        function sendHug() {
+
+            heartExplosion(40);
+
+            vibrate([100,100,100]);
+
+            if (hugText) {
+
+                hugText.classList.remove("hidden");
+
+                hugText.innerHTML =
+                "🫂 Hug Delivered Successfully ❤️";
+
+            }
+
+        }
+
+        function startHold() {
+
+            holdTimer = setTimeout(sendHug, 2000);
+
+        }
+
+        function cancelHold() {
+
+            clearTimeout(holdTimer);
+
+        }
+
+        hugBtn.addEventListener("touchstart", startHold);
+
+        hugBtn.addEventListener("touchend", cancelHold);
+
+        hugBtn.addEventListener("touchcancel", cancelHold);
+
+        hugBtn.addEventListener("mousedown", startHold);
+
+        hugBtn.addEventListener("mouseup", cancelHold);
+
+        hugBtn.addEventListener("mouseleave", cancelHold);
+
+    }
+
+    /*=================================
+        Music Record
+    =================================*/
+
+    const song = document.getElementById("song");
+    const playBtn = document.getElementById("playBtn");
+    const record = document.querySelector(".record");
+
+    if (song && playBtn) {
+
+        playBtn.addEventListener("click", () => {
+
+            if (song.paused) {
+
+                song.play();
+
+                playBtn.innerHTML = "⏸ Pause";
+
+                if(record){
+
+                    record.classList.add("playing");
+
+                }
+
+            }
+
+            else{
+
+                song.pause();
+
+                playBtn.innerHTML = "▶ Play";
+
+                if(record){
+
+                    record.classList.remove("playing");
+
+                }
+
+            }
+
+        });
+
+    }
+
+    /*=================================
+        Gallery Popup
+    =================================*/
+
+    document.querySelectorAll(".photo img")
+
+    .forEach(image => {
+
+        image.addEventListener("click", () => {
+
+            const overlay = document.createElement("div");
+
+            overlay.className = "gallery-overlay";
+
+            const preview = document.createElement("img");
+
+            preview.src = image.src;
+
+            overlay.appendChild(preview);
+
+            overlay.onclick = () => {
+
+                overlay.remove();
+
+            };
+
+            document.body.appendChild(overlay);
+
+        });
+
+    });
+
+    /*=================================
+        Typewriter
+    =================================*/
+
+    const typewriter = document.querySelector(".typewriter");
+
+    if(typewriter){
+
+        const message = typewriter.innerHTML;
+
+        typewriter.innerHTML="";
+
+        let index=0;
+
+        function typing(){
+
+            if(index < message.length){
+
+                typewriter.innerHTML += message.charAt(index);
+
+                index++;
+
+                setTimeout(typing,35);
+
+            }
+
+        }
+
+        typing();
+
+    }
+
+    /*=================================
+        Greeting
+    =================================*/
+
+    const greeting=document.getElementById("greeting");
+
+    if(greeting){
+
+        const hour=new Date().getHours();
+
+        if(hour<12){
+
+            greeting.innerHTML="☀️ Good Morning, Mou!";
+
+        }
+
+        else if(hour<18){
+
+            greeting.innerHTML="🌸 Good Afternoon, Mou!";
+
+        }
+
+        else{
+
+            greeting.innerHTML="🌙 Good Evening, Mou!";
+
+        }
+
+    }
+
+    /*=================================
+        Restart Button
+    =================================*/
+
+    const restart=document.getElementById("restart");
+
+    if(restart){
+
+        restart.addEventListener("click",()=>{
+
+            window.location.href="../welcome.html";
+
+        });
+
+    }
+  /*=================================
+        Secret Heart Lock
+    =================================*/
+
+    const secretHeart = document.getElementById("secretHeart");
+    const emojiLock = document.getElementById("emojiLock");
+    const emojiGrid = document.getElementById("emojiGrid");
+
+    if(secretHeart && emojiLock && emojiGrid){
+
+        const emojiList = [
+            "🐼","🧸","🌸","💖","🐱","🎀",
+            "🌷","✨","🍓","🐻","🎁","🫶"
+        ];
+
+        secretHeart.addEventListener("click",()=>{
+
+            emojiLock.classList.remove("hidden");
+
+            emojiGrid.innerHTML="";
+
+            let selected=[];
+
+            while(selected.length<4){
+
+                let random =
+                emojiList[Math.floor(Math.random()*emojiList.length)];
+
+                if(!selected.includes(random)){
+
+                    selected.push(random);
+
+                }
+
+            }
+
+            selected.push("🪳");
+
+            selected.sort(()=>Math.random()-0.5);
+
+            selected.forEach(emoji=>{
+
+                const item=document.createElement("div");
+
+                item.className="emoji";
+
+                item.innerHTML=emoji;
+
+                item.onclick=()=>{
+
+                    if(emoji==="🪳"){
+
+                        emojiLock.innerHTML=`
+
+                        <div class="lock-box">
+
+                        <h2>✨ Access Granted ❤️</h2>
+
+                        <p>Opening Secret Page...</p>
+
+                        </div>
+
+                        `;
+
+                        heartExplosion(50);
+
+                        vibrate([80,80,80]);
+
+                        setTimeout(()=>{
+
+                            window.location.href="pages/secret.html";
+
+                        },1500);
+
+                    }
+
+                    else{
+
+                        item.style.opacity=".25";
+
+                        item.style.transform="scale(.8)";
+
+                        item.style.pointerEvents="none";
+
+                        vibrate(40);
+
+                    }
+
+                };
+
+                emojiGrid.appendChild(item);
+
+            });
+
+        });
+
+    }
+
+    /*=================================
+        Random Love Messages
+    =================================*/
+
+    const loveMessages=[
+
+        "You're amazing 🌸",
+
+        "Smile, Bachha ❤️",
+
+        "I'm proud of you 💖",
+
+        "Drink some water 💧",
+
+        "You deserve the world 🌍",
+
+        "You're my favorite notification 📱",
+
+        "Never stop smiling 😊",
+
+        "You matter ❤️"
+
+    ];
+
+    function randomLoveMessage(){
+
+        const popup=document.createElement("div");
+
+        popup.className="love-popup";
+
+        popup.innerHTML=
+
+        loveMessages[Math.floor(Math.random()*loveMessages.length)];
+
+        document.body.appendChild(popup);
+
+        setTimeout(()=>{
+
+            popup.classList.add("show");
+
+        },100);
+
+        setTimeout(()=>{
+
+            popup.remove();
+
+        },4000);
+
+    }
+
+    setInterval(randomLoveMessage,30000);
+
+    /*=================================
+        Keyboard Easter Egg
+    =================================*/
+
+    let code="";
+
+    document.addEventListener("keydown",(e)=>{
+
+        code+=e.key.toLowerCase();
+
+        if(code.length>10){
+
+            code=code.slice(-10);
+
+        }
+
+        if(code.includes("mou")){
+
+            heartExplosion(60);
+
+            randomLoveMessage();
+
+            code="";
+
+        }
+
+    });
+
+    /*=================================
+        Console Message
+    =================================*/
+
+    console.log("%c❤️ For Mou ❤️",
+
+    "font-size:28px;color:#ff4d8d;font-weight:bold;");
+
+    console.log(
+
+    "%cIf you found this... you're adorable 🌸",
+
+    "font-size:16px;color:#666;"
+
+    );
 
 });
-/*==========================================
-  app.js
-  Part 2
-==========================================*/
-
-/*==============================
- Loading Screen
-==============================*/
-
-const progressBar=document.getElementById("progressBar");
-const percent=document.getElementById("percent");
-const loadingText=document.getElementById("loadingText");
-
-if(progressBar){
-
-const messages=[
-
-"Loading a little surprise... 💕",
-
-"Preparing hugs... 🫂",
-
-"Collecting hearts... ❤️",
-
-"Adding cute moments... 🌸",
-
-"Almost there, Mou... ✨",
-
-"Welcome, Bachha ❤️"
-
-];
-
-let progress=0;
-let messageIndex=0;
-
-const loader=setInterval(()=>{
-
-progress++;
-
-progressBar.style.width=progress+"%";
-
-if(percent){
-
-percent.innerHTML=progress+"%";
-
-}
-
-if(progress%20===0 && loadingText){
-
-loadingText.innerHTML=messages[messageIndex];
-
-messageIndex++;
-
-}
-
-if(progress>=100){
-
-clearInterval(loader);
-
-if(loadingText){
-
-loadingText.innerHTML="Opening your little world... ❤️";
-
-}
-
-setTimeout(()=>{
-
-window.location.href="welcome.html";
-
-},1500);
-
-}
-
-},50);
-
-}
-
-/*==============================
- Secret Page Unlock
-==============================*/
-
-const hero=document.querySelector(".hero-img");
-
-if(hero){
-
-let taps=0;
-
-hero.addEventListener("click",()=>{
-
-taps++;
-
-if(taps>=7){
-
-window.location.href="pages/secret.html";
-
-}
-
 });
-
-}
-
-/*==============================
- Heart Explosion
-==============================*/
-
-function heartExplosion(){
-
-for(let i=0;i<25;i++){
-
-const heart=document.createElement("span");
-
-heart.className="heart";
-
-heart.innerHTML=["❤️","💖","💕","✨"][Math.floor(Math.random()*4)];
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDuration=(2+Math.random()*2)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},4000);
-
-}
-
-}
-
-/*==============================
- Buttons
-==============================*/
-
-document.querySelectorAll(".love-btn,.start-btn,.next-btn")
-
-.forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-heartExplosion();
-
-vibrate(60);
-
-});
-
-});
-
-/*==============================
- Gift Animation
-==============================*/
-
-const gift=document.getElementById("gift");
-
-if(gift){
-
-gift.addEventListener("click",()=>{
-
-gift.classList.add("open");
-
-heartExplosion();
-
-});
-
-}
-
-/*==============================
- Scroll Reveal
-==============================*/
-
-const reveal=document.querySelectorAll(
-
-".glass-card,.photo,.reason-card,.care-card"
-
-);
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
-
-}
-
-});
-
-});
-
-reveal.forEach(card=>{
-
-card.style.opacity="0";
-
-card.style.transform="translateY(40px)";
-
-observer.observe(card);
-
-});
-
-/*==========================================
-  app.js
-  Part 3
-==========================================*/
-
-/*==============================
- Typewriter Effect
-==============================*/
-
-const typeTarget=document.querySelector(".typewriter");
-
-if(typeTarget){
-
-const text=typeTarget.innerHTML;
-
-typeTarget.innerHTML="";
-
-let i=0;
-
-function type(){
-
-if(i<text.length){
-
-typeTarget.innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(type,35);
-
-}
-
-}
-
-type();
-
-}
-
-/*==============================
- Music Record Rotation
-==============================*/
-
-const song=document.getElementById("song");
-const playBtn=document.getElementById("playBtn");
-const record=document.querySelector(".record");
-
-if(song && playBtn){
-
-playBtn.addEventListener("click",()=>{
-
-if(song.paused){
-
-song.play();
-
-playBtn.innerHTML="⏸ Pause";
-
-if(record){
-
-record.classList.add("playing");
-
-}
-
-}else{
-
-song.pause();
-
-playBtn.innerHTML="▶ Play Our Song";
-
-if(record){
-
-record.classList.remove("playing");
-
-}
-
-}
-
-});
-
-}
-
-/*==============================
- Gallery Popup
-==============================*/
-
-document.querySelectorAll(".photo img").forEach(img=>{
-
-img.addEventListener("click",()=>{
-
-const overlay=document.createElement("div");
-
-overlay.style.position="fixed";
-overlay.style.inset="0";
-overlay.style.background="rgba(0,0,0,.85)";
-overlay.style.display="flex";
-overlay.style.alignItems="center";
-overlay.style.justifyContent="center";
-overlay.style.zIndex="9999";
-
-const image=document.createElement("img");
-
-image.src=img.src;
-
-image.style.maxWidth="90%";
-image.style.maxHeight="85%";
-image.style.borderRadius="20px";
-image.style.boxShadow="0 20px 50px rgba(0,0,0,.5)";
-
-overlay.appendChild(image);
-
-overlay.onclick=()=>overlay.remove();
-
-document.body.appendChild(overlay);
-
-});
-
-});
-
-/*==============================
- Good Morning / Night
-==============================*/
-
-const greeting=document.getElementById("greeting");
-
-if(greeting){
-
-const hour=new Date().getHours();
-
-if(hour<12){
-
-greeting.innerHTML="☀️ Good Morning, Mou!";
-
-}else if(hour<18){
-
-greeting.innerHTML="🌸 Good Afternoon, Mou!";
-
-}else{
-
-greeting.innerHTML="🌙 Good Evening, Mou!";
-
-}
-
-}
-
-/*==============================
- Surprise Popup
-==============================*/
-
-setTimeout(()=>{
-
-const popup=document.getElementById("secretPopup");
-
-if(popup){
-
-popup.classList.remove("hidden");
-
-}
-
-},15000);
-
-/*==============================
- Restart Button
-==============================*/
-
-const restart=document.getElementById("restart");
-
-if(restart){
-
-restart.onclick=()=>{
-
-window.location.href="../welcome.html";
-
-};
-
-}
-const heart=document.getElementById("secretHeart");
-const lock=document.getElementById("emojiLock");
-const grid=document.getElementById("emojiGrid");
-
-const emojis=[
-"🐼","🌸","🎀","💖","🧸","🐱","🌷","✨","🍓","🫶","🐻","🎁"
-];
-
-heart.onclick=()=>{
-
-lock.classList.remove("hidden");
-
-grid.innerHTML="";
-
-let selected=[];
-
-while(selected.length<4){
-
-let e=emojis[Math.floor(Math.random()*emojis.length)];
-
-if(!selected.includes(e)){
-
-selected.push(e);
-
-}
-
-}
-
-// Always add cockroach
-selected.push("🪳");
-
-// Shuffle
-selected.sort(()=>Math.random()-0.5);
-
-selected.forEach(e=>{
-
-let div=document.createElement("div");
-
-div.className="emoji";
-
-div.innerHTML=e;
-
-div.onclick=()=>{
-
-if(e==="🪳"){
-
-lock.innerHTML="<h2>✨ Access Granted ❤️</h2>";
-
-setTimeout(()=>{
-
-location.href="pages/secret.html";
-
-},1200);
-
-}else{
-
-div.style.opacity=".3";
-
-div.style.pointerEvents="none";
-
-}
-
-};
-
-grid.appendChild(div);
-
-});
-
-};
-/*==============================
- Console Easter Egg
-==============================*/
-
-console.log(
-
-"%c❤️ Hi Mou! ❤️",
-
-"font-size:28px;color:#ff4d8d;font-weight:bold;"
-
-);
-
-console.log(
-
-"%cIf you found this... you're adorable 🌸",
-
-"font-size:16px;color:#666;"
-
-);
-
-/*==================================
- End
-==================================*/
