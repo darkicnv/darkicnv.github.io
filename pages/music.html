@@ -1,74 +1,126 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
 
 <title>Our Song ❤️</title>
 
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet"
+href="../css/style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="floating-hearts"></div>
+<div class="hearts"></div>
 
-<div class="page">
+<div class="sparkles"></div>
 
-<img src="../assets/gifs/music-bear.gif"
-class="sticker">
+<main class="page fade">
 
-<h1>Every Love Story Has A Song 🎵</h1>
+<img
 
-<p class="subtitle">
+src="../assets/stickers/music-bear.png"
+
+class="hero-img"
+
+alt="Music Bear">
+
+<h1>
+
+Every Love Story
+Has A Song 🎵
+
+</h1>
+
+<p>
 
 Whenever this song plays...
 
-it reminds me of you.
-
-❤️
+it reminds me of you. ❤️
 
 </p>
 
+<div class="divider"></div>
+
+<!--==================================
+    Vinyl Record Player
+===================================-->
+
 <div class="player">
 
-<div class="record"></div>
+    <div class="record" id="record">
 
-<audio id="song" src="../assets/music/ours.mp3"></audio>
+        <img
 
-<button id="playBtn" class="love-btn">
+        src="../assets/icons/vinyl-record.png"
 
-▶ Play Our Song
+        alt="Vinyl Record">
+
+        <div class="record-center">
+
+            <span>
+
+                For Mou ❤️
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<audio
+
+id="song"
+
+preload="metadata">
+
+    <source
+
+    src="../assets/music/our-song.mp3"
+
+    type="audio/mpeg">
+
+</audio>
+
+<button
+
+id="playBtn"
+
+class="love-btn">
+
+    ▶ Play Our Song
 
 </button>
 
-</div>
+<p class="small">
 
-<div id="lyrics" class="lyrics">
+    Tap the record or the button to play.
 
-💌
+</p>
 
-Every beat reminds me of your smile...
+<div class="divider"></div>
 
-Every lyric reminds me of your kindness...
+<div class="music-message">
 
-Every second reminds me
+    <p class="typewriter">
 
-how lucky I am to know you.
+        Every beat reminds me of your smile...
+        Every lyric reminds me of your kindness...
+        Every second reminds me how lucky I am to know you. ❤️
 
-❤️
-
-</div>
-
-<div class="quote">
-
-"I hope one day this song reminds you of us."
+    </p>
 
 </div>
 
