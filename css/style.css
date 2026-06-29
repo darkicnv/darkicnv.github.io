@@ -1189,6 +1189,151 @@ button:active,
     }
 
 }
+/*==================================================
+    Birthday Messages
+==================================================*/
+
+.message-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    margin-top:10px;
+
+}
+
+.message-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:16px;
+
+    text-decoration:none;
+
+    color:inherit;
+
+    background:rgba(255,255,255,.65);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    backdrop-filter:blur(14px);
+
+    -webkit-backdrop-filter:blur(14px);
+
+    border-radius:22px;
+
+    box-shadow:
+
+    0 12px 30px rgba(255,94,153,.12);
+
+    transition:
+
+    transform .25s ease,
+
+    box-shadow .25s ease,
+
+    background .25s ease;
+
+}
+
+.message-card:hover{
+
+    transform:
+
+    translateY(-3px)
+
+    scale(1.02);
+
+    background:rgba(255,255,255,.82);
+
+    box-shadow:
+
+    0 18px 40px rgba(255,94,153,.20);
+
+}
+
+.message-card:active{
+
+    transform:scale(.98);
+
+}
+
+.message-card img{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:18px;
+
+    object-fit:cover;
+
+    flex-shrink:0;
+
+    border:3px solid rgba(255,255,255,.85);
+
+}
+
+.card-info{
+
+    flex:1;
+
+}
+
+.card-info h3{
+
+    margin:0;
+
+    color:var(--primary-dark);
+
+    font-size:1.1rem;
+
+}
+
+.card-info p{
+
+    margin-top:6px;
+
+    margin-bottom:0;
+
+    font-size:.9rem;
+
+    color:var(--text-light);
+
+    line-height:1.5;
+
+}
+
+/*==============================
+    Read Badge
+==============================*/
+
+.message-card.read{
+
+    opacity:.85;
+
+}
+
+.message-card.read::after{
+
+    content:"✓ Read";
+
+    margin-left:auto;
+
+    color:#2E7D32;
+
+    font-weight:700;
+
+    font-size:.85rem;
+
+}
 
 /*==============================
     End ❤️
