@@ -1223,4 +1223,86 @@ transition:.2s;
 transform:scale(1.25);
 
 }
+.gallery-overlay{
+
+position:fixed;
+inset:0;
+
+background:rgba(0,0,0,.9);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+z-index:99999;
+
+}
+
+.gallery-overlay img{
+
+max-width:90%;
+max-height:90%;
+
+border-radius:20px;
+
+}
+
+.love-popup{
+
+position:fixed;
+
+top:25px;
+left:50%;
+
+transform:translateX(-50%) translateY(-100px);
+
+background:white;
+
+padding:14px 24px;
+
+border-radius:50px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+font-weight:600;
+
+color:#E91E63;
+
+opacity:0;
+
+transition:.4s;
+
+z-index:9999;
+
+}
+
+.love-popup.show{
+
+opacity:1;
+
+transform:translateX(-50%) translateY(0);
+
+}
+
+.emoji{
+
+font-size:34px;
+
+cursor:pointer;
+
+padding:10px;
+
+border-radius:15px;
+
+transition:.25s;
+
+}
+
+.emoji:hover{
+
+transform:scale(1.25);
+
+background:#fff3f8;
+
+}
 /* End of Style Sheet ❤️ */
