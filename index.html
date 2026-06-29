@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ff6b9d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <title>Loading... ❤️</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Quick mobile optimizations */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
+    </style>
+</head>
+
+<body class="loading-page">
+
+    <div class="loading-container">
+        
+        <div class="loading-top">
+            <!-- Animated bear with entrance animation -->
+            <img src="assets/gifs/milk-and-mocha.gif"
+                 class="loading-bear"
+                 alt="Milk & Mocha"
+                 loading="eager">
+        </div>
+
+        <!-- Heading with smooth entrance -->
+        <h1 class="greeting-title">Hi, Mou! 🌻</h1>
+
+        <!-- Dynamic loading messages -->
+        <p id="loadingText" class="loading-message">
+            Loading a little surprise...
+        </p>
+
+        <!-- Heart Progress Bar Container -->
+        <div class="heart-progress-wrapper">
+            <div class="heart-progress-background">
+                <div id="heartProgressBar" class="heart-progress-fill"></div>
+            </div>
+            <span id="percent" class="progress-percent">0%</span>
+        </div>
+
+        <!-- Floating hearts animation -->
+        <div class="floating-hearts">
+            <div class="heart-float">❤️</div>
+            <div class="heart-float">💕</div>
+            <div class="heart-float">🌸</div>
+        </div>
+
+    </div>
+
+    <script>
+        // Enhanced loading messages with emojis
+        const messages = [
+            "Loading a little surprise... 💕",
+            "Preparing hugs... 🫂",
+            "Collecting hearts... ❤️",
+            "Adding cute moments... 🌸🌻",
+            "Almost there, Mou... ✨",
+            "Welcome, Bachha ❤️"
+        ];
+
+        let progress = 0;
+        let index = 0;
+        let messageShowInterval = 0;
+
+        const heartBar = document.getElementById("heartProgressBar");
+        const percent = document.getElementById("percent");
+        const text = document.getElementById("loadingText");
+
+        // Progressive loading with varied speed
+        const interval = setInterval(() => {
+            // Variable speed for more natural feel
+            const speedBoost = progress < 30 ? 1 : progress < 70 ? 0.8 : 0.4;
+            progress += (1 * speedBoost);
+            progress = Math.min(progress, 100);
+
+            // Update heart bar width
+            heartBar.style.width = progress + "%";
+            percent.innerHTML = Math.floor(progress) + "%";
+
+            // Update message at intervals
+            if (Math.floor(progress) % 20 === 0 && index < messages.length) {
+                text.innerHTML = messages[index];
+                index++;
+            }
+
+            // Complete loading
+            if (progress >= 100) {
+                clearInterval(interval);
+                text.innerHTML = "Opening your little world... ❤️";
+                heartBar.style.width = "100%";
+                percent.innerHTML = "100%";
+
+                // Delay before redirect for smooth transition
+                setTimeout(() => {
+                    document.body.style.opacity = "0";
+                    document.body.style.transition = "opacity 0.6s ease-out";
+                    
+                    setTimeout(() => {
+                        window.location.href = "welcome.html";
+                    }, 600);
+                }, 1500);
+            }
+        }, 45);
+
+        // Prevent going back to loading screen
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                window.location.href = "welcome.html";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
