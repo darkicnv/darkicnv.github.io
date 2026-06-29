@@ -1,104 +1,7 @@
-/*==========================================
-    Secret Lock - Part 1
-==========================================*/
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-const heart=document.getElementById("secretHeart");
-
-const popup=document.getElementById("emojiLock");
-
-if(!heart){
-
-    console.error("❌ #secretHeart not found");
-
-    return;
-
-}
-
-if(!popup){
-
-    console.error("❌ #emojiLock not found");
-
-    return;
-
-}
-
-console.log("✅ Secret system loaded");
-
-heart.addEventListener("click",()=>{
-
-    popup.classList.remove("hidden");
-
-});
-
-});
-/*==========================================
-    Secret Lock - Part 2
-==========================================*/
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-const heart=document.getElementById("secretHeart");
-const popup=document.getElementById("emojiLock");
-const text=document.getElementById("lockText");
-const grid=document.getElementById("emojiGrid");
-
-if(!heart || !popup || !text || !grid){
-
-    console.error("Secret elements missing");
-
-    return;
-
-}
-
-heart.addEventListener("click",()=>{
-
-    popup.classList.remove("hidden");
-
-    grid.innerHTML="";
-
-    text.innerHTML="Scanning... 0%";
-
-    let progress=0;
-
-    const scan=setInterval(()=>{
-
-        progress+=10;
-
-        text.innerHTML="Scanning... "+progress+"%";
-
-        if(progress>=100){
-
-            clearInterval(scan);
-
-            text.innerHTML="🤭 Find the little troublemaker...";
-
-            // Part 3 will generate the emojis here.
-
-        }
-
-    },120);
-
-});
-
-/* Close popup when tapping outside */
-
-popup.addEventListener("click",(e)=>{
-
-    if(e.target===popup){
-
-        popup.classList.add("hidden");
-
-    }
-
-});
-
-});
-
-/*==========================================
-    Secret Lock - Part 3
-==========================================*/
+/*==================================================
+    FOR MOU ❤️
+    Secret Lock
+==================================================*/
 
 document.addEventListener("DOMContentLoaded",()=>{
 
@@ -108,30 +11,30 @@ const text=document.getElementById("lockText");
 const grid=document.getElementById("emojiGrid");
 
 const emojis=[
-
 "🐼",
 "🌸",
 "🧸",
 "💖",
 "🎀",
-"🐱",
 "🐻",
-"🌷",
+"🐱",
 "🍓",
-"🫶",
-"✨"
-
+"🌷",
+"✨",
+"🫶"
 ];
 
 if(!heart || !popup || !text || !grid){
 
-    console.error("Secret elements missing");
+    console.error("Secret elements missing.");
 
     return;
 
 }
 
-heart.addEventListener("click",()=>{
+heart.addEventListener("click",openLock);
+
+function openLock(){
 
     popup.classList.remove("hidden");
 
@@ -141,7 +44,7 @@ heart.addEventListener("click",()=>{
 
     let progress=0;
 
-    const scan=setInterval(()=>{
+    const timer=setInterval(()=>{
 
         progress+=10;
 
@@ -149,19 +52,22 @@ heart.addEventListener("click",()=>{
 
         if(progress>=100){
 
-            clearInterval(scan);
+            clearInterval(timer);
 
             text.innerHTML="🤭 Find the little troublemaker...";
 
-            showEmojis();
+            buildGrid();
 
         }
 
     },120);
 
-});
+}
+    /*==========================================
+    Build Emoji Grid
+==========================================*/
 
-function showEmojis(){
+function buildGrid(){
 
     grid.innerHTML="";
 
@@ -169,11 +75,11 @@ function showEmojis(){
 
     while(list.length<5){
 
-        const e=emojis[Math.floor(Math.random()*emojis.length)];
+        const emoji=emojis[Math.floor(Math.random()*emojis.length)];
 
-        if(!list.includes(e)){
+        if(!list.includes(emoji)){
 
-            list.push(e);
+            list.push(emoji);
 
         }
 
@@ -181,7 +87,7 @@ function showEmojis(){
 
     list.push("🪳");
 
-    list.sort(()=>Math.random()-0.5);
+    shuffle(list);
 
     list.forEach(item=>{
 
@@ -189,9 +95,9 @@ function showEmojis(){
 
         box.className="emoji";
 
-        box.innerHTML=item;
+        box.textContent=item;
 
-        box.onclick=()=>{
+        box.addEventListener("click",()=>{
 
             if(item==="🪳"){
 
@@ -203,7 +109,7 @@ function showEmojis(){
 
             }
 
-        };
+        });
 
         grid.appendChild(box);
 
@@ -211,50 +117,20 @@ function showEmojis(){
 
 }
 
-function wrong(box){
+/*==========================================
+    Shuffle Array
+==========================================*/
 
-    if(navigator.vibrate){
+function shuffle(array){
 
-        navigator.vibrate(80);
+    for(let i=array.length-1;i>0;i--){
 
-    }
+        const j=Math.floor(Math.random()*(i+1));
 
-    box.style.background="#FFD6D6";
-
-    box.style.transform="scale(.9)";
-
-    setTimeout(()=>{
-
-        box.style.background="";
-
-        box.style.transform="";
-
-    },250);
-
-}
-
-function unlock(){
-
-    text.innerHTML="❤️ Access Granted";
-
-    grid.innerHTML="";
-
-    setTimeout(()=>{
-
-        window.location.href="pages/secret.html";
-
-    },1200);
-
-}
-
-popup.addEventListener("click",(e)=>{
-
-    if(e.target===popup){
-
-        popup.classList.add("hidden");
+        [array[i],array[j]]=[array[j],array[i]];
 
     }
 
-});
+    return array;
 
-});
+}
