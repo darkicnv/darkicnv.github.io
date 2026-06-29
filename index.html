@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loading... ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="loading-page">
+
+<div class="loading-container">
+
+    <img src="assets/gifs/milk-and-mocha.gif"
+         class="loading-bear"
+         alt="Milk & Mocha">
+
+    <h1>Hi, Mou! 🌻</h1>
+
+    <p id="loadingText">
+        Loading a little surprise...
+    </p>
+
+    <div class="progress">
+
+        <div id="progressBar"></div>
+
+    </div>
+
+    <span id="percent">0%</span>
+
+</div>
+
+<script>
+
+const messages=[
+
+"Loading a little surprise... 💕",
+
+"Preparing hugs... 🫂",
+
+"Collecting hearts... ❤️",
+
+"Adding cute moments... 🌸🌻",
+
+"Almost there, Mou... ✨",
+
+"Welcome, Bachha ❤️"
+
+];
+
+let progress=0;
+
+let index=0;
+
+const bar=document.getElementById("progressBar");
+
+const percent=document.getElementById("percent");
+
+const text=document.getElementById("loadingText");
+
+const interval=setInterval(()=>{
+
+progress++;
+
+bar.style.width=progress+"%";
+
+percent.innerHTML=progress+"%";
+
+if(progress%20===0 && index<messages.length){
+
+text.innerHTML=messages[index];
+
+index++;
+
+}
+
+if(progress>=100){
+
+clearInterval(interval);
+
+text.innerHTML="Opening your little world... ❤️";
+
+setTimeout(()=>{
+
+window.location.href="welcome.html";
+
+},1500);
+
+}
+
+},50);
+
+</script>
+
+</body>
+
+</html>
