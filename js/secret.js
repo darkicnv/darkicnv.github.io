@@ -2,7 +2,7 @@
     FOR MOU ❤️
     secret.js
 ==================================================*/
-
+console.log("secret.js loaded");
 document.addEventListener("DOMContentLoaded",()=>{
 
     const heart=document.getElementById("secretHeart");
