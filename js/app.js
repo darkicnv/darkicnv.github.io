@@ -497,7 +497,75 @@ window.location.href="../welcome.html";
 };
 
 }
+const heart=document.getElementById("secretHeart");
+const lock=document.getElementById("emojiLock");
+const grid=document.getElementById("emojiGrid");
 
+const emojis=[
+"🐼","🌸","🎀","💖","🧸","🐱","🌷","✨","🍓","🫶","🐻","🎁"
+];
+
+heart.onclick=()=>{
+
+lock.classList.remove("hidden");
+
+grid.innerHTML="";
+
+let selected=[];
+
+while(selected.length<4){
+
+let e=emojis[Math.floor(Math.random()*emojis.length)];
+
+if(!selected.includes(e)){
+
+selected.push(e);
+
+}
+
+}
+
+// Always add cockroach
+selected.push("🪳");
+
+// Shuffle
+selected.sort(()=>Math.random()-0.5);
+
+selected.forEach(e=>{
+
+let div=document.createElement("div");
+
+div.className="emoji";
+
+div.innerHTML=e;
+
+div.onclick=()=>{
+
+if(e==="🪳"){
+
+lock.innerHTML="<h2>✨ Access Granted ❤️</h2>";
+
+setTimeout(()=>{
+
+location.href="pages/secret.html";
+
+},1200);
+
+}else{
+
+div.style.opacity=".3";
+
+div.style.pointerEvents="none";
+
+}
+
+};
+
+grid.appendChild(div);
+
+});
+
+};
 /*==============================
  Console Easter Egg
 ==============================*/
