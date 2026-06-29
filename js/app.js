@@ -1,576 +1,728 @@
 /*==================================================
     FOR MOU ❤️
-    app.js
+    app.js v2.0
 ==================================================*/
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-    console.log("❤️ Welcome, Mou!");
+"use strict";
 
-    /*==============================
-        Helpers
-    ==============================*/
+/*==========================================
+    Selectors
+==========================================*/
 
-    const $=(selector)=>document.querySelector(selector);
+const $=(e)=>document.querySelector(e);
 
-    const $$=(selector)=>document.querySelectorAll(selector);
+const $$=(e)=>document.querySelectorAll(e);
 
-    function vibrate(ms=60){
+/*==========================================
+    Helpers
+==========================================*/
 
-        if(navigator.vibrate){
+function vibrate(time=50){
 
-            navigator.vibrate(ms);
+    if(navigator.vibrate){
+
+        navigator.vibrate(time);
+
+    }
+
+}
+
+function random(min,max){
+
+    return Math.random()*(max-min)+min;
+
+}
+
+/*==========================================
+    Floating Hearts
+==========================================*/
+
+const heartContainer=$(".hearts");
+
+const heartIcons=[
+
+"❤️",
+
+"💖",
+
+"💕",
+
+"🌸",
+
+"✨"
+
+];
+
+function createHeart(){
+
+    if(!heartContainer) return;
+
+    if(heartContainer.children.length>8) return;
+
+    const heart=document.createElement("span");
+
+    heart.className="heart";
+
+    heart.innerHTML=
+
+    heartIcons[Math.floor(Math.random()*heartIcons.length)];
+
+    heart.style.left=random(5,95)+"vw";
+
+    heart.style.fontSize=random(18,28)+"px";
+
+    heart.style.animationDuration=
+
+    random(6,9)+"s";
+
+    heartContainer.appendChild(heart);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },9000);
+
+}
+
+setInterval(createHeart,1000);
+
+/*==========================================
+    Sparkles
+==========================================*/
+
+const sparkleContainer=$(".sparkles");
+
+if(sparkleContainer){
+
+    for(let i=0;i<18;i++){
+
+        const star=document.createElement("span");
+
+        star.className="spark
+            /*==========================================
+    Loading Screen
+==========================================*/
+
+const progressFill=$(".progress-fill");
+
+const progressText=$(".progress-percent");
+
+const loadingStatus=$(".loading-status");
+
+if(progressFill && progressText){
+
+    const messages=[
+
+        "Preparing something special...",
+
+        "Collecting hugs... 🫂",
+
+        "Picking flowers... 🌸",
+
+        "Writing your letter... 💌",
+
+        "Wrapping your surprise... 🎁",
+
+        "Ready, Mou ❤️"
+
+    ];
+
+    let percent=0;
+
+    const loader=setInterval(()=>{
+
+        percent++;
+
+        progressFill.style.width=percent+"%";
+
+        progressText.innerHTML=percent+"%";
+
+        if(percent<20){
+
+            loadingStatus.innerHTML=messages[0];
 
         }
 
-    }
+        else if(percent<40){
 
-    /*==============================
-        Fade Body
-    ==============================*/
-
-    document.body.classList.add("fade");
-
-    /*==============================
-        Floating Hearts
-    ==============================*/
-
-    const heartContainer=$(".hearts");
-
-    function createHeart(){
-
-        if(!heartContainer) return;
-
-        const heart=document.createElement("span");
-
-        const hearts=[
-            "❤️",
-            "💖",
-            "💕",
-            "🌸",
-            "✨"
-        ];
-
-        heart.className="heart";
-
-        heart.textContent=
-        hearts[Math.floor(Math.random()*hearts.length)];
-
-        heart.style.left=
-        Math.random()*100+"vw";
-
-        heart.style.fontSize=
-        (18+Math.random()*16)+"px";
-
-        heart.style.animationDuration=
-        (4+Math.random()*4)+"s";
-
-        heartContainer.appendChild(heart);
-
-        setTimeout(()=>{
-
-            heart.remove();
-
-        },8000);
-
-    }
-
-    setInterval(createHeart,450);
-
-    /*==============================
-        Sparkles
-    ==============================*/
-
-    const sparkleContainer=$(".sparkles");
-
-    if(sparkleContainer){
-
-        for(let i=0;i<35;i++){
-
-            const star=document.createElement("span");
-
-            star.className="sparkle";
-
-            star.style.left=
-            Math.random()*100+"vw";
-
-            star.style.top=
-            Math.random()*100+"vh";
-
-            star.style.animationDelay=
-            Math.random()*3+"s";
-
-            sparkleContainer.appendChild(star);
+            loadingStatus.innerHTML=messages[1];
 
         }
 
-    }
+        else if(percent<60){
 
-    /*==============================
-        Music Button
-    ==============================*/
-
-    const music=$("#bgMusic");
-
-    const musicBtn=$("#musicBtn");
-
-    if(music && musicBtn){
-
-        musicBtn.addEventListener("click",()=>{
-
-            if(music.paused){
-
-                music.play();
-
-                musicBtn.innerHTML="🔊";
-
-            }
-
-            else{
-
-                music.pause();
-
-                musicBtn.innerHTML="🎵";
-
-            }
-
-        });
-
-    }
-        /*==============================
-        Welcome Animation
-    ==============================*/
-
-    const hero = $(".hero-img");
-    const title = $("h1");
-    const paragraphs = $$("main p");
-    const startBtn = $(".start-btn");
-
-    if(hero){
-
-        hero.style.opacity="0";
-        hero.style.transform="translateY(-30px)";
-
-        setTimeout(()=>{
-
-            hero.style.transition=".8s ease";
-
-            hero.style.opacity="1";
-            hero.style.transform="translateY(0)";
-
-        },200);
-
-    }
-
-    if(title){
-
-        title.style.opacity="0";
-        title.style.transform="translateY(20px)";
-
-        setTimeout(()=>{
-
-            title.style.transition=".7s ease";
-
-            title.style.opacity="1";
-            title.style.transform="translateY(0)";
-
-        },700);
-
-    }
-
-    paragraphs.forEach((p,index)=>{
-
-        p.style.opacity="0";
-        p.style.transform="translateY(20px)";
-
-        setTimeout(()=>{
-
-            p.style.transition=".6s ease";
-
-            p.style.opacity="1";
-            p.style.transform="translateY(0)";
-
-        },1100+(index*250));
-
-    });
-
-    if(startBtn){
-
-        startBtn.style.opacity="0";
-        startBtn.style.transform="scale(.9)";
-
-        setTimeout(()=>{
-
-            startBtn.style.transition=".5s ease";
-
-            startBtn.style.opacity="1";
-            startBtn.style.transform="scale(1)";
-
-        },2100);
-
-    }
-
-    /*==============================
-        Button Effects
-    ==============================*/
-
-    function heartExplosion(count=18){
-
-        for(let i=0;i<count;i++){
-
-            const heart=document.createElement("span");
-
-            heart.className="heart";
-
-            heart.textContent=["❤️","💖","💕","✨"]
-            [Math.floor(Math.random()*4)];
-
-            heart.style.left=Math.random()*100+"vw";
-
-            heart.style.fontSize=
-            (16+Math.random()*18)+"px";
-
-            heart.style.animationDuration=
-            (2+Math.random()*2)+"s";
-
-            document.body.appendChild(heart);
-
-            setTimeout(()=>{
-
-                heart.remove();
-
-            },4000);
+            loadingStatus.innerHTML=messages[2];
 
         }
 
-    }
+        else if(percent<80){
 
-    $$("button,.start-btn,.next-btn,.back-btn,.love-btn")
-
-    .forEach(button=>{
-
-        button.addEventListener("click",()=>{
-
-            heartExplosion();
-
-            vibrate(40);
-
-        });
-
-    });
-
-    /*==============================
-        Scroll Reveal
-    ==============================*/
-
-    const revealItems=$$(
-        ".glass-card,.photo,.reason-card,.care-card,.reward"
-    );
-
-    if(revealItems.length){
-
-        const observer=new IntersectionObserver(entries=>{
-
-            entries.forEach(entry=>{
-
-                if(entry.isIntersecting){
-
-                    entry.target.style.opacity="1";
-
-                    entry.target.style.transform="translateY(0)";
-
-                }
-
-            });
-
-        });
-
-        revealItems.forEach(item=>{
-
-            item.style.opacity="0";
-
-            item.style.transform="translateY(35px)";
-
-            observer.observe(item);
-
-        });
-
-    }
-        /*==============================
-        Hold To Hug
-    ==============================*/
-
-    const hugBtn=$("#hugBtn");
-    const hugText=$("#hugText");
-
-    if(hugBtn){
-
-        let holdTimer;
-
-        function deliverHug(){
-
-            heartExplosion(35);
-
-            vibrate([100,80,100]);
-
-            if(hugText){
-
-                hugText.classList.remove("hidden");
-
-                hugText.innerHTML=
-                "🫂 Hug Delivered Successfully ❤️";
-
-            }
+            loadingStatus.innerHTML=messages[3];
 
         }
 
-        function startHold(){
+        else if(percent<100){
 
-            holdTimer=setTimeout(deliverHug,2000);
-
-        }
-
-        function stopHold(){
-
-            clearTimeout(holdTimer);
-
-        }
-
-        hugBtn.addEventListener("touchstart",startHold);
-
-        hugBtn.addEventListener("touchend",stopHold);
-
-        hugBtn.addEventListener("touchcancel",stopHold);
-
-        hugBtn.addEventListener("mousedown",startHold);
-
-        hugBtn.addEventListener("mouseup",stopHold);
-
-        hugBtn.addEventListener("mouseleave",stopHold);
-
-    }
-
-    /*==============================
-        Gallery Viewer
-    ==============================*/
-
-    $$(".photo img").forEach(image=>{
-
-        image.addEventListener("click",()=>{
-
-            const overlay=document.createElement("div");
-
-            overlay.className="gallery-overlay";
-
-            const preview=document.createElement("img");
-
-            preview.src=image.src;
-
-            preview.alt=image.alt;
-
-            overlay.appendChild(preview);
-
-            overlay.addEventListener("click",()=>{
-
-                overlay.remove();
-
-            });
-
-            document.body.appendChild(overlay);
-
-        });
-
-    });
-
-    /*==============================
-        Music Record
-    ==============================*/
-
-    const song=$("#song");
-    const playBtn=$("#playBtn");
-    const record=$(".record");
-
-    if(song && playBtn){
-
-        playBtn.addEventListener("click",()=>{
-
-            if(song.paused){
-
-                song.play();
-
-                playBtn.innerHTML="⏸ Pause";
-
-                if(record){
-
-                    record.classList.add("playing");
-
-                }
-
-            }
-
-            else{
-
-                song.pause();
-
-                playBtn.innerHTML="▶ Play";
-
-                if(record){
-
-                    record.classList.remove("playing");
-
-                }
-
-            }
-
-        });
-
-    }
-
-    /*==============================
-        Typewriter
-    ==============================*/
-
-    const typewriter=$(".typewriter");
-
-    if(typewriter){
-
-        const text=typewriter.textContent;
-
-        typewriter.textContent="";
-
-        let index=0;
-
-        function typing(){
-
-            if(index<text.length){
-
-                typewriter.textContent+=text.charAt(index);
-
-                index++;
-
-                setTimeout(typing,35);
-
-            }
-
-        }
-
-        typing();
-
-    }
-
-    /*==============================
-        Greeting
-    ==============================*/
-
-    const greeting=$("#greeting");
-
-    if(greeting){
-
-        const hour=new Date().getHours();
-
-        if(hour<12){
-
-            greeting.innerHTML="☀️ Good Morning, Mou!";
-
-        }
-
-        else if(hour<18){
-
-            greeting.innerHTML="🌸 Good Afternoon, Mou!";
+            loadingStatus.innerHTML=messages[4];
 
         }
 
         else{
 
-            greeting.innerHTML="🌙 Good Evening, Mou!";
+            loadingStatus.innerHTML=messages[5];
+
+            clearInterval(loader);
+
+            setTimeout(()=>{
+
+                window.location.href="welcome.html";
+
+            },900);
+
+        }
+
+    },45);
+
+}
+
+/*==========================================
+    Music Player
+==========================================*/
+
+const song=$("#song");
+
+const playBtn=$("#playBtn");
+
+const record=$("#record");
+
+function playSong(){
+
+    if(!song) return;
+
+    song.play();
+
+    if(record){
+
+        record.classList.add("playing");
+
+    }
+
+    if(playBtn){
+
+        playBtn.innerHTML="⏸ Pause";
+
+    }
+
+}
+
+function pauseSong(){
+
+    if(!song) return;
+
+    song.pause();
+
+    if(record){
+
+        record.classList.remove("playing");
+
+    }
+
+    if(playBtn){
+
+        playBtn.innerHTML="▶ Play Our Song";
+
+    }
+
+}
+
+if(playBtn){
+
+    playBtn.addEventListener("click",()=>{
+
+        song.paused ?
+
+        playSong()
+
+        :
+
+        pauseSong();
+
+    });
+
+}
+
+if(record){
+
+    record.addEventListener("click",()=>{
+
+        song.paused ?
+
+        playSong()
+
+        :
+
+        pauseSong();
+
+    });
+
+}
+
+if(song){
+
+    song.addEventListener("ended",()=>{
+
+        record.classList.remove("playing");
+
+        if(playBtn){
+
+            playBtn.innerHTML="▶ Play Again";
+
+        }
+
+    });
+
+}
+
+/*==========================================
+    Welcome Animation
+==========================================*/
+
+const hero=$(".hero-img");
+
+const title=$("h1");
+
+const paragraphs=$$("main p");
+
+const button=$(".start-btn");
+
+if(hero){
+
+    hero.animate([
+
+        {
+
+            opacity:0,
+
+            transform:"translateY(-25px)"
+
+        },
+
+        {
+
+            opacity:1,
+
+            transform:"translateY(0)"
+
+        }
+
+    ],{
+
+        duration:700,
+
+        easing:"ease-out",
+
+        fill:"forwards"
+
+    });
+
+}
+
+if(title){
+
+    title.animate([
+
+        {
+
+            opacity:0,
+
+            transform:"translateY(20px)"
+
+        },
+
+        {
+
+            opacity:1,
+
+            transform:"translateY(0)"
+
+        }
+
+    ],{
+
+        delay:300,
+
+        duration:600,
+
+        fill:"forwards"
+
+    });
+
+}
+
+paragraphs.forEach((p,index)=>{
+
+    p.animate([
+
+        {
+
+            opacity:0,
+
+            transform:"translateY(15px)"
+
+        },
+
+        {
+
+            opacity:1,
+
+            transform:"translateY(0)"
+
+        }
+
+    ],{
+
+        delay:700+(index*180),
+
+        duration:500,
+
+        fill:"forwards"
+
+    });
+
+});
+
+if(button){
+
+    button.animate([
+
+        {
+
+            opacity:0,
+
+            transform:"scale(.9)"
+
+        },
+
+        {
+
+            opacity:1,
+
+            transform:"scale(1)"
+
+        }
+
+    ],{
+
+        delay:1500,
+
+        duration:500,
+
+        fill:"forwards"
+
+    });
+
+}
+        /*==========================================
+    Hold To Hug
+==========================================*/
+
+const hugBtn=$("#hugBtn");
+const hugText=$("#hugText");
+
+if(hugBtn){
+
+    let holdTimer=null;
+
+    function completeHug(){
+
+        vibrate([100,80,100]);
+
+        createHeartBurst(25);
+
+        if(hugText){
+
+            hugText.innerHTML="🫂 Hug Delivered Successfully ❤️";
+
+            hugText.classList.remove("hidden");
 
         }
 
     }
 
-    /*==============================
-        Restart Button
-    ==============================*/
+    function startHold(){
 
-    const restart=$("#restart");
+        holdTimer=setTimeout(completeHug,2000);
 
-    if(restart){
+    }
 
-        restart.addEventListener("click",()=>{
+    function stopHold(){
 
-            window.location.href="../welcome.html";
+        clearTimeout(holdTimer);
 
-        });
+    }
 
-                }
-    /*==============================
-        Floating Love Messages
-    ==============================*/
+    hugBtn.addEventListener("mousedown",startHold);
+    hugBtn.addEventListener("mouseup",stopHold);
+    hugBtn.addEventListener("mouseleave",stopHold);
 
-    const messages=[
+    hugBtn.addEventListener("touchstart",startHold,{passive:true});
+    hugBtn.addEventListener("touchend",stopHold);
+    hugBtn.addEventListener("touchcancel",stopHold);
 
-        "You're amazing 🌸",
+}
 
-        "Smile, Bachha ❤️",
+/*==========================================
+    Heart Burst
+==========================================*/
 
-        "I'm proud of you 💖",
+function createHeartBurst(total=20){
 
-        "Drink some water 💧",
+    for(let i=0;i<total;i++){
 
-        "Never forget how special you are ✨",
+        const heart=document.createElement("span");
 
-        "You make my world brighter ☀️",
+        heart.className="heart";
 
-        "You deserve every happiness 🤍"
+        heart.innerHTML=
 
-    ];
+        heartIcons[Math.floor(Math.random()*heartIcons.length)];
 
-    function showLoveMessage(){
+        heart.style.left=random(15,85)+"vw";
 
-        const popup=document.createElement("div");
+        heart.style.fontSize=random(18,28)+"px";
 
-        popup.className="love-popup";
+        heart.style.animationDuration=random(2,4)+"s";
 
-        popup.textContent=
-
-        messages[Math.floor(Math.random()*messages.length)];
-
-        document.body.appendChild(popup);
+        document.body.appendChild(heart);
 
         setTimeout(()=>{
 
-            popup.classList.add("show");
-
-        },100);
-
-        setTimeout(()=>{
-
-            popup.remove();
+            heart.remove();
 
         },4000);
 
     }
 
-    setInterval(showLoveMessage,30000);
+}
 
-    /*==============================
-        Console Message
-    ==============================*/
+/*==========================================
+    Gallery Viewer
+==========================================*/
 
-    console.log(
+$$(".photo img").forEach(photo=>{
 
-        "%c❤️ FOR MOU ❤️",
+    photo.addEventListener("click",()=>{
 
-        "font-size:28px;color:#E91E63;font-weight:bold;"
+        const overlay=document.createElement("div");
 
-    );
+        overlay.className="gallery-overlay";
 
-    console.log(
+        overlay.innerHTML=
 
-        "%cMade with lots of love 🌸",
+        `<img src="${photo.src}" alt="">`;
 
-        "font-size:16px;color:#666;"
+        overlay.addEventListener("click",()=>{
 
-    );
+            overlay.remove();
+
+        });
+
+        document.body.appendChild(overlay);
+
+    });
+
+});
+
+/*==========================================
+    Gift Surprise
+==========================================*/
+
+const gift=$("#gift");
+
+if(gift){
+
+    gift.addEventListener("click",()=>{
+
+        createHeartBurst(40);
+
+        vibrate(120);
+
+        gift.style.transform="scale(1.1) rotate(-8deg)";
+
+        setTimeout(()=>{
+
+            gift.style.transform="";
+
+        },300);
+
+    });
+
+}
+
+/
+        /*==========================================
+    Typewriter
+==========================================*/
+
+const typeWriter=$(".typewriter");
+
+if(typeWriter){
+
+    const message=typeWriter.textContent.trim();
+
+    typeWriter.textContent="";
+
+    let i=0;
+
+    function write(){
+
+        if(i<message.length){
+
+            typeWriter.textContent+=message.charAt(i);
+
+            i++;
+
+            setTimeout(write,35);
+
+        }
+
+    }
+
+    write();
+
+}
+
+/*==========================================
+    Love Popup Messages
+==========================================*/
+
+const loveMessages=[
+
+"🌸 You're my favourite person.",
+
+"❤️ Smile, Bachha.",
+
+"💖 I'm proud of you.",
+
+"🤍 Don't forget to drink water.",
+
+"🌷 You make every day brighter.",
+
+"✨ Thank you for being you."
+
+];
+
+function showLoveMessage(){
+
+    const popup=document.createElement("div");
+
+    popup.className="love-popup";
+
+    popup.innerHTML=
+
+    loveMessages[Math.floor(Math.random()*loveMessages.length)];
+
+    document.body.appendChild(popup);
+
+    setTimeout(()=>{
+
+        popup.classList.add("show");
+
+    },50);
+
+    setTimeout(()=>{
+
+        popup.remove();
+
+    },3500);
+
+}
+
+setInterval(showLoveMessage,45000);
+
+/*==========================================
+    Greeting
+==========================================*/
+
+const greeting=$("#greeting");
+
+if(greeting){
+
+    const hour=new Date().getHours();
+
+    if(hour<12){
+
+        greeting.innerHTML="☀️ Good Morning, Mou!";
+
+    }
+
+    else if(hour<18){
+
+        greeting.innerHTML="🌸 Good Afternoon, Mou!";
+
+    }
+
+    else{
+
+        greeting.innerHTML="🌙 Good Evening, Mou!";
+
+    }
+
+}
+
+/*==========================================
+    Restart Button
+==========================================*/
+
+const restart=$("#restart");
+
+if(restart){
+
+    restart.addEventListener("click",()=>{
+
+        window.location.href="../welcome.html";
+
+    });
+
+}
+
+/*==========================================
+    Button Feedback
+==========================================*/
+
+$$("button,.start-btn,.next-btn,.back-btn,.love-btn")
+
+.forEach(btn=>{
+
+    btn.addEventListener("click",()=>{
+
+        vibrate(30);
+
+    });
+
+});
+
+/*==========================================
+    Console
+==========================================*/
+
+console.log(
+
+"%c❤️ FOR MOU ❤️",
+
+"color:#E91E63;font-size:28px;font-weight:bold;"
+
+);
+
+console.log(
+
+"%cMade with love, smiles and lots of hugs 🌸",
+
+"color:#777;font-size:14px;"
+
+);
 
 });
