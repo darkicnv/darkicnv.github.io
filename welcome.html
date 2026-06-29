@@ -1,107 +1,168 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#FFD6E8">
+<meta charset="UTF-8">
 
-    <title>For My Princess ❤️</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+<meta name="theme-color"
+content="#FF5E99">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<title>For Mou ❤️</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet"
+href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- Floating Hearts -->
-    <div class="hearts"></div>
+<!-- Floating Hearts -->
 
-    <!-- Floating Sparkles -->
-    <div class="sparkles"></div>
+<div class="hearts"></div>
 
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
-        <source src="assets/music/love.mp3" type="audio/mpeg">
-    </audio>
+<!-- Sparkles -->
 
-    <!-- Music Button -->
-    <button id="musicBtn" title="Music">
-        <i class="fa-solid fa-music"></i>
-    </button>
+<div class="sparkles"></div>
 
-    <!-- Main Card -->
-    <main class="container">
+<!-- Background Music -->
 
-        <!-- Hero Sticker -->
-        <img src="assets/stickers/hello.png"
-            alt="Hello Kitty"
-            class="hero-img">
+<audio
+id="bgMusic"
+loop>
 
-        <!-- Welcome Text -->
-        <div class="welcome-text">
+<source
+src="assets/music/our-song.mp3"
+type="audio/mpeg">
 
-            <h1>Hi, Mou! 🌸</h1>
+</audio>
 
-            <p>Welcome to your little corner of my heart.</p>
+<!-- Music Button -->
 
-            <p>I made this tiny world just for you,</p>
+<button
+id="musicBtn"
+class="music-btn">
 
-            <p>filled with little surprises,</p>
+🎵
 
-            <p>cute moments,</p>
+</button>
 
-            <p>and a lot of love.</p>
+<!-- Main Card -->
 
-            <p class="last-line">
-                Ready to explore, <strong>Bachha?</strong> ❤️
-            </p>
+<main class="container fade">
 
-            <a href="pages/smile.html" class="start-btn">
+<img
+
+src="assets/stickers/hello.png"
+
+alt="Hello Kitty"
+
+class="hero-img"
+
+id="secretHeartTrigger">
+
+<h1>
+
+Hi, Mou! 🌸
+
+</h1>
+
+<p>
+
+Welcome to your little corner of my heart.
+
+</p>
+
+<p>
+
+I made this tiny world just for you,
+
+filled with little surprises,
+
+cute moments,
+
+and lots of love.
+
+</p>
+
+<p class="quote">
+
+Every click is another reason
+
+to smile today. ❤️
+
+</p>
+        <div class="buttons">
+
+            <a
+            href="pages/smile.html"
+            class="start-btn">
+
                 Open My Heart ❤️
+
             </a>
 
         </div>
 
-    </main>
+</main>
 
-    <!-- Footer -->
-    <footer class="footer">
+<!-- Footer -->
 
-        Made with
-        <span class="heart">❤️</span>
-        especially for
-        <strong>Mou</strong>
+<footer class="footer">
 
-    </footer>
-<div id="secretHeart">❤️</div>
+    Made with ❤️ especially for
+
+    <strong>Mou</strong>
+
+</footer>
+
+<!-- Hidden Secret Heart -->
+
+<div id="secretHeart">
+
+    ❤️
+
+</div>
+
+<!-- Secret Lock -->
 
 <div id="emojiLock" class="hidden">
 
     <div class="lock-box">
 
-        <h2>🔒 Secret Lock</h2>
+        <h2>
 
-        <p>Find the secret emoji to unlock.</p>
+            🔒 Secret Lock
 
-        <div id="emojiGrid"></div>
+        </h2>
+
+        <p>
+
+            Find the one emoji that doesn't belong...
+
+        </p>
+
+        <div id="emojiGrid">
+
+        </div>
 
     </div>
 
 </div>
-    <!-- JavaScript -->
-    <script src="js/app.js"></script>
+
+<!-- JavaScript -->
+
+<script src="js/app.js"></script>
+
 <script src="js/secret.js"></script>
 
 </body>
 
-                </html>
+</html>
