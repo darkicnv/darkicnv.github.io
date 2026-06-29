@@ -1109,4 +1109,25 @@ box-shadow .3s;
     color:#6A3D6E !important;
     font-weight:600;
 }
+/* ===== Music Page Fix ===== */
+
+.music-page p,
+.music-page .message,
+.music-page .quote{
+
+    color:#4A3A52 !important;
+
+}
+
+.music-page h1{
+
+    color:#E91E63 !important;
+
+}
+
+.music-page{
+
+    color:#4A3A52;
+
+}
 /* End of Style Sheet ❤️ */
