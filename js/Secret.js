@@ -62,3 +62,78 @@ document.addEventListener("DOMContentLoaded", () => {
             div.className="emoji";
 
             div.textContent=
+            div.addEventListener("click",()=>{
+
+                if(emoji==="🪳"){
+
+                    div.style.transform="scale(1.3)";
+
+                    div.style.background="#d4ffd4";
+
+                    popup.querySelector("h2").textContent="✨ Access Granted ❤️";
+
+                    popup.querySelector("p").textContent="Opening your secret page...";
+
+                    if(navigator.vibrate){
+
+                        navigator.vibrate([100,80,100]);
+
+                    }
+
+                    setTimeout(()=>{
+
+                        window.location.href="pages/secret.html";
+
+                    },1500);
+
+                }
+
+                else{
+
+                    if(navigator.vibrate){
+
+                        navigator.vibrate(60);
+
+                    }
+
+                    div.animate([
+
+                        {transform:"translateX(0)"},
+                        {transform:"translateX(-8px)"},
+                        {transform:"translateX(8px)"},
+                        {transform:"translateX(-8px)"},
+                        {transform:"translateX(0)"}
+
+                    ],{
+
+                        duration:300
+
+                    });
+
+                    div.style.opacity=".35";
+
+                    div.style.pointerEvents="none";
+
+                }
+
+            });
+
+            grid.appendChild(div);
+
+        });
+
+    });
+
+    /* Close popup when tapping outside */
+
+    popup.addEventListener("click",(e)=>{
+
+        if(e.target===popup){
+
+            popup.classList.add("hidden");
+
+        }
+
+    });
+
+});
