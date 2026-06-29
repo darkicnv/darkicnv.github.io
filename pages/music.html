@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <title>Our Song ❤️</title>
 
@@ -37,7 +37,7 @@ alt="Music Bear">
 
 <h1>
 
-Every Love Story
+Every Love Story<br>
 Has A Song 🎵
 
 </h1>
@@ -51,32 +51,37 @@ it reminds me of you. ❤️
 </p>
 
 <div class="divider"></div>
-
-<!--==================================
-    Vinyl Record Player
-===================================-->
+<!--==============================
+    Vinyl Player
+===============================-->
 
 <div class="player">
 
-    <div class="record" id="record">
+<div
 
-        <img
+class="record"
 
-        src="../assets/icons/vinyl-record.png"
+id="record"
 
-        alt="Vinyl Record">
+title="Play Music">
 
-        <div class="record-center">
+<img
 
-            <span>
+src="../assets/icons/vinyl-record.png"
 
-                For Mou ❤️
+alt="Vinyl Record">
 
-            </span>
+<div class="record-center">
 
-        </div>
+<span>
 
-    </div>
+For Mou ❤️
+
+</span>
+
+</div>
+
+</div>
 
 </div>
 
@@ -86,11 +91,11 @@ id="song"
 
 preload="metadata">
 
-    <source
+<source
 
-    src="../assets/music/our-song.mp3"
+src="../assets/music/our-song.mp3"
 
-    type="audio/mpeg">
+type="audio/mpeg">
 
 </audio>
 
@@ -100,39 +105,64 @@ id="playBtn"
 
 class="love-btn">
 
-    ▶ Play Our Song
+▶ Play Our Song
 
 </button>
 
 <p class="small">
 
-    Tap the record or the button to play.
+💖 Close your eyes...
+and let this song remind you
+how special you are.
 
 </p>
 
 <div class="divider"></div>
+<!--==============================
+    Love Message
+===============================-->
 
 <div class="music-message">
 
-    <p class="typewriter">
+<p
 
-        Every beat reminds me of your smile...
-        Every lyric reminds me of your kindness...
-        Every second reminds me how lucky I am to know you. ❤️
+id="lyrics"
 
-    </p>
+class="typewriter">
+
+Every beat reminds me of your smile...<br><br>
+
+Every lyric reminds me of your kindness...<br><br>
+
+Every second reminds me how lucky I am to know you. ❤️
+
+</p>
 
 </div>
 
+<div class="divider"></div>
+
+<!--==============================
+    Navigation
+===============================-->
+
 <div class="buttons">
 
-<a href="gallery.html" class="back-btn">
+<a
 
-← Back
+href="gallery.html"
+
+class="back-btn">
+
+← Previous
 
 </a>
 
-<a href="surprise.html" class="next-btn">
+<a
+
+href="surprise.html"
+
+class="next-btn">
 
 Next →
 
@@ -140,35 +170,110 @@ Next →
 
 </div>
 
-</div>
-
+</main>
 <script>
 
 const song=document.getElementById("song");
 
 const btn=document.getElementById("playBtn");
 
+const record=document.getElementById("record");
+
 const lyrics=document.getElementById("lyrics");
 
-btn.onclick=()=>{
+/*==============================
+    Play Music
+==============================*/
 
-if(song.paused){
+function playSong(){
 
-song.play();
+    song.play();
 
-btn.innerHTML="⏸ Pause";
+    btn.innerHTML="⏸ Pause";
 
-lyrics.style.opacity="1";
+    record.classList.add("playing");
 
-}else{
-
-song.pause();
-
-btn.innerHTML="▶ Play Our Song";
+    lyrics.style.opacity="1";
 
 }
 
-};
+/*==============================
+    Pause Music
+==============================*/
+
+function pauseSong(){
+
+    song.pause();
+
+    btn.innerHTML="▶ Play Our Song";
+
+    record.classList.remove("playing");
+
+}
+
+/*==============================
+    Button Click
+==============================*/
+
+btn.addEventListener("click",()=>{
+
+    if(song.paused){
+
+        playSong();
+
+    }else{
+
+        pauseSong();
+
+    }
+
+});
+
+/*==============================
+    Record Click
+==============================*/
+
+record.addEventListener("click",()=>{
+
+    if(song.paused){
+
+        playSong();
+
+    }else{
+
+        pauseSong();
+
+    }
+
+});
+
+/*==============================
+    Song End
+==============================*/
+
+song.addEventListener("ended",()=>{
+
+    btn.innerHTML="▶ Play Again";
+
+    record.classList.remove("playing");
+
+});
+
+/*==============================
+    Auto Pause
+==============================*/
+
+song.addEventListener("pause",()=>{
+
+    record.classList.remove("playing");
+
+});
+
+song.addEventListener("play",()=>{
+
+    record.classList.add("playing");
+
+});
 
 </script>
 
