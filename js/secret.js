@@ -134,3 +134,104 @@ function shuffle(array){
     return array;
 
 }
+/*==========================================
+    Wrong Emoji
+==========================================*/
+
+function wrong(box){
+
+    if(navigator.vibrate){
+
+        navigator.vibrate(80);
+
+    }
+
+    box.style.background="#FFD6D6";
+
+    box.style.transform="scale(.90)";
+
+    box.style.animation="shake .3s";
+
+    setTimeout(()=>{
+
+        box.style.background="";
+
+        box.style.transform="";
+
+        box.style.animation="";
+
+    },300);
+
+}
+
+/*==========================================
+    Unlock Secret
+==========================================*/
+
+function unlock(){
+
+    text.innerHTML="❤️ Access Granted";
+
+    grid.innerHTML="";
+
+    const success=document.createElement("div");
+
+    success.innerHTML="🎉";
+
+    success.style.fontSize="60px";
+
+    success.style.marginTop="15px";
+
+    grid.appendChild(success);
+
+    if(navigator.vibrate){
+
+        navigator.vibrate([120,80,120]);
+
+    }
+
+    setTimeout(()=>{
+
+        window.location.href="pages/secret.html";
+
+    },1500);
+
+}
+
+/*==========================================
+    Close Popup
+==========================================*/
+
+popup.addEventListener("click",(e)=>{
+
+    if(e.target===popup){
+
+        popup.classList.add("hidden");
+
+        grid.innerHTML="";
+
+        text.innerHTML="🤭 Find the little troublemaker...";
+
+    }
+
+});
+
+/*==========================================
+    ESC Key Support
+==========================================*/
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Escape"){
+
+        popup.classList.add("hidden");
+
+    }
+
+});
+
+/*==========================================
+    End
+==========================================*/
+
+});
