@@ -1411,6 +1411,149 @@ button:active,
     color:var(--primary-dark);
 
 }
+/*==================================================
+    Birthday Notification
+==================================================*/
+
+.notification-bell{
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    width:60px;
+
+    height:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    z-index:1000;
+
+}
+
+.bell{
+
+    width:56px;
+
+    height:56px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    background:rgba(255,255,255,.72);
+
+    border-radius:50%;
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    box-shadow:
+
+    0 8px 25px rgba(255,94,153,.18);
+
+    animation:
+
+    bellGlow 2.5s ease-in-out infinite;
+
+    transition:.25s;
+
+}
+
+.notification-bell:hover .bell{
+
+    transform:scale(1.08);
+
+}
+
+.badge{
+
+    position:absolute;
+
+    top:-2px;
+
+    right:-2px;
+
+    min-width:22px;
+
+    height:22px;
+
+    padding:0 6px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#FF3B5C;
+
+    color:#fff;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    border:2px solid #fff;
+
+}
+
+@keyframes bellGlow{
+
+    0%,100%{
+
+        transform:rotate(0deg);
+
+        box-shadow:
+
+        0 0 0 rgba(255,94,153,0);
+
+    }
+
+    20%{
+
+        transform:rotate(-12deg);
+
+    }
+
+    40%{
+
+        transform:rotate(12deg);
+
+    }
+
+    60%{
+
+        transform:rotate(-8deg);
+
+    }
+
+    80%{
+
+        transform:rotate(8deg);
+
+        box-shadow:
+
+        0 0 18px rgba(255,94,153,.35);
+
+    }
+
+}
 /*==============================
     End ❤️
 ==============================*/
