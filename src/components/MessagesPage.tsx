@@ -36,13 +36,6 @@ export const FRIENDS: Friend[] = [
     fullMessage: "Happy Birthday! 🎈 Wishing you success, joy, and endless blessings. Have a blast today, you totally deserve it!"
   },
   { 
-    id: 'new_friend', 
-    name: "New Friend", 
-    img: "new_friend.jpg", 
-    previewMsg: "Tap to read their birthday wish →",
-    fullMessage: "Happy Birthday! Write your custom message here! 🎉"
-  },
-  { 
     id: 'everyone', 
     name: "Everyone", 
     img: "everyone.jpg", 
