@@ -1,0 +1,6 @@
+{
+  "name": "Surprise for Mou",
+  "description": "A beautiful, animated birthday surprise website for Mou.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
