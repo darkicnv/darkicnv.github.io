@@ -12,6 +12,7 @@ export default function MenuPage({ onNavigate }: MenuPageProps) {
     { id: 'gallery', title: 'Gallery 📸', icon: 'love-letter.png', delay: 0.15 },
     { id: 'music', title: 'Our Song 🎵', icon: 'hello.png', delay: 0.2 },
     { id: 'reasons', title: 'Reasons ❤️', icon: 'heart-bear.png', delay: 0.3 },
+    { id: 'compliments', title: 'Words ✨', icon: 'hello.png', delay: 0.35 },
     { id: 'surprise', title: 'Surprise 🎁', icon: 'care-bear.png', delay: 0.4 },
     { id: 'you', title: 'Just You ✨', icon: 'bear-heart.png', delay: 0.5 },
   ];

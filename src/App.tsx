@@ -12,6 +12,7 @@ import FriendMessagePage from './components/FriendMessagePage';
 import SmilePage from './components/SmilePage';
 import MusicPage from './components/MusicPage';
 import ReasonsPage from './components/ReasonsPage';
+import ComplimentsPage from './components/ComplimentsPage';
 import SurprisePage from './components/SurprisePage';
 import YouPage from './components/YouPage';
 import SecretPage from './components/SecretPage';
@@ -73,6 +74,8 @@ export default function App() {
         return <MusicPage key="music" onBack={() => setCurrentPage('menu')} />;
       case 'reasons':
         return <ReasonsPage key="reasons" onBack={() => setCurrentPage('menu')} />;
+      case 'compliments':
+        return <ComplimentsPage key="compliments" onBack={() => setCurrentPage('menu')} />;
       case 'surprise':
         return <SurprisePage key="surprise" onBack={() => setCurrentPage('menu')} onOpenLetter={() => setCurrentPage('letter')} />;
       case 'letter':
