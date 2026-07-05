@@ -26,7 +26,7 @@ export default function WelcomePage({ onMenu, onWishes, onSecret }: WelcomePageP
       >
         <Bell className="text-pink-primary w-6 h-6 animate-pulse group-hover:animate-none" />
         <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
-          5
+          9
         </span>
       </button>
 
