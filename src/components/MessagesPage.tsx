@@ -8,9 +8,9 @@ interface Props {
 
 export const FRIENDS: Friend[] = [
   { 
-    id: 'nafisha', 
-    name: "Nafisha", 
-    img: "nafisha.jpg", 
+    id: 'nafisa', 
+    name: "Nafisa", 
+    img: "nafisa.jpg", 
     previewMsg: "Tap to read her birthday wish →",
     fullMessage: "Happy Birthday, my dearest patniji 😋 It feels incredible that a year of friendship, born within the halls of our university, has already become one of my life's sweetest blessings. Thank you for holding my hand through countless moments with your rare empathy and unwavering kindness. Your effortlessly desi soul and your quiet, timeless beauty make you truly one of a kind. May this year cherish you as deeply as your friendship has cherished me—today and always. ❤️‍🩹"
   },
