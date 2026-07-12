@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Bell } from 'lucide-react';
 import { ASSET_BASE } from '../types';
 import { useState } from 'react';

@@ -1,6 +1,6 @@
 import PageLayout from './PageLayout';
 import { ASSET_BASE } from '../types';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Gift } from 'lucide-react';
 

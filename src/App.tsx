@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence } from 'framer-motion';
 import { Page, Friend } from './types';
 import FloatingHearts from './components/FloatingHearts';
 

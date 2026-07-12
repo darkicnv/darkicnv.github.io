@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { ASSET_BASE } from '../types';
 
 const messages = [
@@ -17,33 +17,29 @@ interface LoadingPageProps {
 
 export default function LoadingPage({ onComplete }: LoadingPageProps) {
   const [progress, setProgress] = useState(0);
-  const [messageIndex, setMessageIndex] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prev) => {
-        const next = prev + 1;
-        
-        if (next % 20 === 0 && messageIndex < messages.length - 1) {
-          setMessageIndex((prevIdx) => prevIdx + 1);
-        }
-        
-        if (next >= 100) {
-          clearInterval(interval);
-          setIsCompleted(true);
-          setTimeout(() => {
-            onComplete();
-          }, 1500);
-          return 100;
-        }
-        
-        return next;
+        if (prev >= 100) return 100;
+        return prev + 1;
       });
     }, 50);
-
     return () => clearInterval(interval);
-  }, [messageIndex, onComplete]);
+  }, []);
+
+  useEffect(() => {
+    if (progress >= 100 && !isCompleted) {
+      setIsCompleted(true);
+      const timer = setTimeout(() => {
+        onComplete();
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [progress, isCompleted, onComplete]);
+
+  const messageIndex = Math.min(Math.floor(progress / 20), messages.length - 1);
 
   return (
     <motion.div 
