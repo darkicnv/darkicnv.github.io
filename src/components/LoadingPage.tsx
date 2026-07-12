@@ -30,14 +30,14 @@ export default function LoadingPage({ onComplete }: LoadingPageProps) {
   }, []);
 
   useEffect(() => {
-    if (progress >= 100 && !isCompleted) {
+    if (progress >= 100) {
       setIsCompleted(true);
       const timer = setTimeout(() => {
         onComplete();
       }, 1500);
       return () => clearTimeout(timer);
     }
-  }, [progress, isCompleted, onComplete]);
+  }, [progress, onComplete]);
 
   const messageIndex = Math.min(Math.floor(progress / 20), messages.length - 1);
 
