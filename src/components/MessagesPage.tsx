@@ -40,7 +40,7 @@ export const FRIENDS: Friend[] = [
     name: "Raniya", 
     img: "raniya.jpg", 
     previewMsg: "Tap to read her birthday wish →",
-    fullMessage: "Happy Birthday! 🎈 Wishing you success, joy, and endless blessings. Have a blast today, you totally deserve it!"
+    fullMessage: "Happy birthday dearest mou 🎈 many many happy returns of the day 🌷 may God bless you with good health and prosperity ♥️"
   },
   { 
     id: 'nishat', 
