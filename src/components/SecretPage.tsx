@@ -25,30 +25,27 @@ export default function SecretPage({ onBack }: Props) {
         />
         
         <h1 className="text-3xl font-bold text-pink-400 font-cursive tracking-wider">
-          🤫 You Found My Secret!
+          A Little Secret ❤️
         </h1>
         
-        <p className="text-gray-300 text-lg leading-relaxed font-medium mb-4">
-          Hi, Bachha...<br/>
-          I honestly didn't think you'd find this page.<br/><br/>
-          But since you're here...<br/>
-          you deserve one last little surprise. ❤️
-        </p>
-        
-        <div className="p-6 border border-pink-500/30 bg-gray-800/80 rounded-2xl backdrop-blur-sm shadow-[0_0_20px_rgba(255,94,153,0.1)] w-full text-left space-y-3 my-6">
-          <h2 className="text-xl font-bold font-cursive text-pink-300 mb-4 text-center">Things I Wish For... 🌸</h2>
-          <p className="text-gray-300">🤍 I wish you always stay healthy.</p>
-          <p className="text-gray-300">😊 I wish your smile never fades.</p>
-          <p className="text-gray-300">✨ I wish every dream of yours comes true.</p>
-          <p className="text-gray-300">🌷 I wish you always know how loved you are.</p>
-          <p className="text-gray-300">🫂 I wish I could hug you whenever you're sad.</p>
-          <p className="text-gray-300 mt-4">💖 And most of all...</p>
-          <p className="text-pink-300 font-bold mt-2 text-lg">I wish life is always kind to you, Mou.</p>
+        <div className="text-gray-300 text-base leading-relaxed font-medium mb-4 space-y-4 text-left p-6 border border-pink-500/30 bg-gray-800/80 rounded-2xl backdrop-blur-sm shadow-[0_0_20px_rgba(255,94,153,0.1)] w-full">
+          <p>If you've found this page...</p>
+          <p>Congratulations. 😊</p>
+          <p>This was hidden because these are the words I wanted only you to read.</p>
+          <p>First of all...</p>
+          <p className="text-pink-300 font-bold text-xl">I love you.</p>
+          <p>There are so many things I never managed to say, and maybe I still don't know how to say them perfectly.</p>
+          <p>One thing I have always thought about is that I wish I could have been there more during the difficult time you went through. I wanted to give you the space and privacy you deserved, but a part of me still wonders if I should have done more. I just hope you know that I cared, and I still do.</p>
+          <p>There's another little secret behind this website.</p>
+          <p>The birthday wishes you saw weren't there by accident.</p>
+          <p>I reached out to your friends one by one, asking them if they would send me a birthday message and a photo for you. Seeing everyone come together to make you smile made me incredibly happy.</p>
+          <p>I wanted this website to be more than just a birthday gift.</p>
+          <p>I wanted it to become a small collection of memories, kind words, laughter, and love , all in one place.</p>
+          <p>If this little world managed to make you smile, even for a moment...</p>
+          <p>Then every hour I spent building it was worth it.</p>
+          <p className="text-pink-300 font-bold text-xl text-center mt-6">Happy Birthday, Mou. ❤️</p>
+          <p className="italic font-medium text-pink-400 mt-6 text-right">- Someone who will always wish the very best for you.</p>
         </div>
-
-        <p className="italic text-pink-400 font-medium text-lg px-4 mb-8">
-          "You deserve every beautiful thing this world has to offer." ❤️
-        </p>
 
         <button 
           onClick={onBack}
